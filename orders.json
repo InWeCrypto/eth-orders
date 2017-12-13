@@ -1,0 +1,36 @@
+{
+    "orders": {
+        "geth": "http://47.52.158.99:8545",
+        "debug": true,
+        "ethdb": {
+            "port": "3432",
+            "host": "rm-j6c3l1306m24yc8yio.pg.rds.aliyuncs.com",
+            "schema": "eth",
+            "username": "inwecryptodev",
+            "password": "zEU8ljhgNDRA5fyT"
+        },
+        "laddr": ":8000"
+    },
+    "slf4go": {
+        "aliyun": {
+            "project": "inwecrypto",
+            "endpoint": "cn-hongkong.log.aliyuncs.com",
+            "accesskey": {
+                "id": "LTAI48mIXgxl142U",
+                "secret": "biu2hvcsl5KSfFw2ffbLYO1HJxvyOm"
+            },
+            "logstore": "inwecrypto",
+            "source": "eth-orders-testnet"
+        }
+    },
+    "aliyun": {
+        "kafka": {
+            "user": "LTAI0pveOCQk1cHa",
+            "password": "mcGjqxFFc8",
+            "cert": "./root.cer",
+            "servers": ["kafka-ons-internet.aliyun.com:8080"],
+            "topics": ["ethx-testnet"],
+            "consumer": "CID_ETHX_TESTNET"
+        }
+    }
+}
