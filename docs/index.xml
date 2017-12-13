@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NEO钱包SDK接口文档</title>
+    <link>https://inwecrypto.github.io/eth-orders/</link>
+    <description>Recent content on NEO钱包SDK接口文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    
+	<atom:link href="https://inwecrypto.github.io/eth-orders/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API Reference</title>
+      <link>https://inwecrypto.github.io/eth-orders/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://inwecrypto.github.io/eth-orders/</guid>
+      <description>介绍 ETH订单管理微服务，提供以下功能：
+ 用户钱包注册，用于钱包交易推送（无钱包管理功能）； 订单管理，包括：获取订单列表,创建订单，查询订单状态以及状态推送；  所有接口通过 HTTP RESTful 方式提供
+注册用户钱包 HTTP Request POST http://xxxxx.com/wallet/:userid/:address
+请求参数    Parameter Type Description     userid string 阿里云推送账号ID   address string ETH钱包地址    删除用户钱包 HTTP Request DELETE http://xxxxx.com/wallet/:userid/:address
+请求参数    Parameter Type Description     userid string 阿里云推送账号ID   address string ETH钱包地址    创建订单 HTTP Request POST http://xxxxx.com/order</description>
+    </item>
+    
+  </channel>
+</rss>

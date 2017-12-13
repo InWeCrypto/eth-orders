@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.31" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>NEO钱包SDK接口文档</title>
+    <link href='/eth-orders/slate/stylesheets/monokai.css' rel="stylesheet" media="screen" />
+<link href='/eth-orders/slate/stylesheets/screen.css' rel="stylesheet" media="screen" />
+<link href='/eth-orders/slate/stylesheets/print.css' rel="stylesheet" media="print" />
+
+    
+<script src='/eth-orders/slate/javascripts/all.js'></script>
+
+    
+</head>
+<body class="index" data-languages="[ &#34;java&#34; ,  &#34;objc&#34; ]">
+    <a href="#" id="nav-button">
+        <span>
+        NAV
+        <img src='/eth-orders/slate/images/navbar.png'/>
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        
+         <img src='/eth-orders/images/logo.png' />
+        
+        <div class="lang-selector">
+            
+            <a href="#" data-language-name="java">android</a>
+            
+            <a href="#" data-language-name="objc">iOS</a>
+            
+        </div>
+         
+        
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder=''>
+        </div>
+        <ul class="search-results"></ul>
+        
+        <div id="toc">
+        </div>
+         
+        
+        <ul class="toc-footer">
+            
+            <li><a href='#'>Registrer deg for ein utviklarnøkkel</a></li>
+            
+            <li>Dokumentasjonen er driven av <a href="https://github.com/bep/docuapi" target="_blank">DocuAPI</a></li>
+            
+            <li>Hugo Theme av <a href="https://github.com/bep" target="_blank">bep</a></li>
+            
+        </ul>
+        
+        
+    </div>
+    <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content">
+            
+    
+        
+
+<h1 id="介绍">介绍</h1>
+
+<p>ETH订单管理微服务，提供以下功能：</p>
+
+<ol>
+<li>用户钱包注册，用于钱包交易推送（无钱包管理功能）；</li>
+<li>订单管理，包括：获取订单列表,创建订单，查询订单状态以及状态推送；</li>
+</ol>
+
+<p>所有接口通过 HTTP RESTful 方式提供</p>
+
+<h2 id="注册用户钱包">注册用户钱包</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code>POST http://xxxxx.com/wallet/:userid/:address</code></p>
+
+<h4 id="请求参数">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>userid</td>
+<td>string</td>
+<td>阿里云推送账号ID</td>
+</tr>
+
+<tr>
+<td>address</td>
+<td>string</td>
+<td>ETH钱包地址</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="删除用户钱包">删除用户钱包</h2>
+
+<h3 id="http-request-1">HTTP Request</h3>
+
+<p><code>DELETE http://xxxxx.com/wallet/:userid/:address</code></p>
+
+<h4 id="请求参数-1">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>userid</td>
+<td>string</td>
+<td>阿里云推送账号ID</td>
+</tr>
+
+<tr>
+<td>address</td>
+<td>string</td>
+<td>ETH钱包地址</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="创建订单">创建订单</h2>
+
+<h3 id="http-request-2">HTTP Request</h3>
+
+<p><code>POST http://xxxxx.com/order</code></p>
+
+<h4 id="请求参数-2">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>tx</td>
+<td>string</td>
+<td>订单ID</td>
+</tr>
+
+<tr>
+<td>from</td>
+<td>string</td>
+<td>转账来源钱包地址</td>
+</tr>
+
+<tr>
+<td>to</td>
+<td>string</td>
+<td>转账目标钱包地址</td>
+</tr>
+
+<tr>
+<td>asset</td>
+<td>string</td>
+<td>转账资产类型ID</td>
+</tr>
+
+<tr>
+<td>value</td>
+<td>string</td>
+<td>订单转账金额</td>
+</tr>
+
+<tr>
+<td>context</td>
+<td>json</td>
+<td>订单上下文数据，json字符串（非JSON对象）</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>请求参数</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;tx&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;from&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;context&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="获取订单状态">获取订单状态</h2>
+
+<h3 id="http-request-3">HTTP Request</h3>
+
+<p><code>GET http://xxxxx.com/order/:tx</code></p>
+
+<h4 id="请求参数-3">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>tx</td>
+<td>string</td>
+<td>订单ID</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>响应参数</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;status&#34;</span><span class="p">:</span><span class="kc">false</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="获取订单列表">获取订单列表</h2>
+
+<h3 id="http-request-4">HTTP Request</h3>
+
+<p><code>GET http://xxxxx.com/orders/:address/:asset/:offset/:size</code></p>
+
+<h4 id="请求参数-4">请求参数</h4>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>钱包地址</td>
+</tr>
+
+<tr>
+<td>asset</td>
+<td>string</td>
+<td>资产类型</td>
+</tr>
+
+<tr>
+<td>offset</td>
+<td>number</td>
+<td>分页</td>
+</tr>
+
+<tr>
+<td>size</td>
+<td>number</td>
+<td>分页大小</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>响应参数</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span>
+<span class="p">{</span>
+<span class="nt">&#34;tx&#34;</span><span class="p">:</span> <span class="s2">&#34;0x67905b068cde98d0450168bf6f8feac5eac390073a97cb660dadb056fa31ca11&#34;</span><span class="p">,</span>
+<span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;AMpupnF6QweQXLfCtF4dR45FDdKbTXkLsr&#34;</span><span class="p">,</span>
+<span class="nt">&#34;to&#34;</span><span class="p">:</span> <span class="s2">&#34;AMpupnF6QweQXLfCtF4dR45FDdKbTXkLsr&#34;</span><span class="p">,</span>
+<span class="nt">&#34;asset&#34;</span><span class="p">:</span> <span class="s2">&#34;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&#34;</span><span class="p">,</span>
+<span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+<span class="nt">&#34;createTime&#34;</span><span class="p">:</span> <span class="s2">&#34;2017-11-26T22:38:16.133121Z&#34;</span><span class="p">,</span>
+<span class="nt">&#34;confirmTime&#34;</span><span class="p">:</span> <span class="s2">&#34;2017-11-26T22:38:50.41296Z&#34;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="nt">&#34;tx&#34;</span><span class="p">:</span> <span class="s2">&#34;0x526c5d94b828a35ac1a165008a0777ef052be3192e194c134a78f34fedab7e36&#34;</span><span class="p">,</span>
+<span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;AMpupnF6QweQXLfCtF4dR45FDdKbTXkLsr&#34;</span><span class="p">,</span>
+<span class="nt">&#34;to&#34;</span><span class="p">:</span> <span class="s2">&#34;AMpupnF6QweQXLfCtF4dR45FDdKbTXkLsr&#34;</span><span class="p">,</span>
+<span class="nt">&#34;asset&#34;</span><span class="p">:</span> <span class="s2">&#34;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&#34;</span><span class="p">,</span>
+<span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+<span class="nt">&#34;createTime&#34;</span><span class="p">:</span> <span class="s2">&#34;2017-11-26T22:41:44.013348Z&#34;</span><span class="p">,</span>
+<span class="nt">&#34;confirmTime&#34;</span><span class="p">:</span> <span class="s2">&#34;2017-11-26T22:42:05.859609Z&#34;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="nt">&#34;tx&#34;</span><span class="p">:</span> <span class="s2">&#34;0x1e1cda7e791cf896f321efe5524d78ebf5aacb874b9f17999bd79dd445b7dac3&#34;</span><span class="p">,</span>
+<span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;AMpupnF6QweQXLfCtF4dR45FDdKbTXkLsr&#34;</span><span class="p">,</span>
+<span class="nt">&#34;to&#34;</span><span class="p">:</span> <span class="s2">&#34;AMpupnF6QweQXLfCtF4dR45FDdKbTXkLsr&#34;</span><span class="p">,</span>
+<span class="nt">&#34;asset&#34;</span><span class="p">:</span> <span class="s2">&#34;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&#34;</span><span class="p">,</span>
+<span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+<span class="nt">&#34;createTime&#34;</span><span class="p">:</span> <span class="s2">&#34;2017-11-26T22:57:50.941295Z&#34;</span><span class="p">,</span>
+<span class="nt">&#34;confirmTime&#34;</span><span class="p">:</span> <span class="s2">&#34;2017-11-26T22:58:24.039529Z&#34;</span>
+<span class="p">}</span>
+<span class="p">]</span></code></pre></div>
+    
+
+        </div>
+        <div class="dark-box">
+            
+            <div class="lang-selector">
+                
+                <a href="#" data-language-name="java">android</a>
+                
+                <a href="#" data-language-name="objc">iOS</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
