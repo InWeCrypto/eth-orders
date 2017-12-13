@@ -1,0 +1,9 @@
+{
+    "ethdb": {
+        "port": "3432",
+        "host": "rm-j6c3l1306m24yc8yio.pg.rds.aliyuncs.com",
+        "schema": "eth",
+        "username": "inwecryptodev",
+        "password": "zEU8ljhgNDRA5fyT"
+    }
+}
