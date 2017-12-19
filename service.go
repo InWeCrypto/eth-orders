@@ -286,6 +286,7 @@ func (server *APIServer) getPagedOrders(address, asset string, offset, size int)
 			Context:     torder.Context,
 			CreateTime:  &createTime,
 			ConfirmTime: confirmTime,
+			Blocks:      torder.Blocks,
 		})
 	}
 
