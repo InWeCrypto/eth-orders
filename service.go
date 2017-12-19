@@ -203,7 +203,7 @@ func (server *APIServer) createOrder(order *Order) error {
 		Asset:   order.Asset,
 		Value:   order.Value,
 		Context: order.Context,
-		Blocks:  -1,
+		Blocks:  int64(order.Blocks),
 	}
 
 	_, err := server.db.Insert(tOrder)
@@ -243,6 +243,7 @@ func (server *APIServer) getOrder(tx string) ([]*Order, error) {
 			Context:     torder.Context,
 			CreateTime:  &createTime,
 			ConfirmTime: confirmTime,
+			Blocks:      uint64(torder.Blocks),
 		})
 	}
 
@@ -286,7 +287,7 @@ func (server *APIServer) getPagedOrders(address, asset string, offset, size int)
 			Context:     torder.Context,
 			CreateTime:  &createTime,
 			ConfirmTime: confirmTime,
-			Blocks:      torder.Blocks,
+			Blocks:      uint64(torder.Blocks),
 		})
 	}
 
