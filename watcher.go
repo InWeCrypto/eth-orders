@@ -41,6 +41,8 @@ func (watcher *txWatcher) Run() {
 
 				watcher.mq.Commit(message)
 			}
+		case err := <-watcher.mq.Errors():
+			watcher.ErrorF("mq error %s", err)
 		}
 	}
 }
