@@ -10,18 +10,18 @@
 			"revisionTime": "2017-11-26T15:05:34Z"
 		},
 		{
-			"checksumSHA1": "vqTaEZndZ4SQNNX1nqQ36s4odgg=",
+			"checksumSHA1": "A6T/YIMYM2QVl8C72utF2whDJ+Q=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/Shopify/sarama",
 			"path": "github.com/Shopify/sarama",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
-			"checksumSHA1": "NykgODYqok9ED1APp7mmN5w3GTg=",
+			"checksumSHA1": "vWHFC42HW6ao7cJ6ihIyc+hZdVM=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/bsm/sarama-cluster",
 			"path": "github.com/bsm/sarama-cluster",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "8dMf/LWTKUevSFeTpcs/Bq6ePcs=",
@@ -34,8 +34,8 @@
 			"checksumSHA1": "mrz/kicZiUaHxkyfvC/DyQcr8Do=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/davecgh/go-spew/spew",
 			"path": "github.com/davecgh/go-spew/spew",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "LrOnRW6KCAcKDnKPs+Hibtb7Duk=",
@@ -51,7 +51,7 @@
 			"revisionTime": "2017-12-12T11:56:49Z"
 		},
 		{
-			"checksumSHA1": "JZvpj5R2/dwleXBlsFildyuzWpI=",
+			"checksumSHA1": "0cUGai1t4MdsKV+77duP4nOQ3fY=",
 			"path": "github.com/dynamicgo/aliyunlog",
 			"revision": "51dadb25e2667443b9c7c868e88b4be64ade5f73",
 			"revisionTime": "2017-12-12T11:56:49Z"
@@ -72,22 +72,22 @@
 			"checksumSHA1": "y2Kh4iPlgCPXSGTCcFpzePYdzzg=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/eapache/go-resiliency/breaker",
 			"path": "github.com/eapache/go-resiliency/breaker",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "WHl96RVZlOOdF4Lb1OOadMpw8ls=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/eapache/go-xerial-snappy",
 			"path": "github.com/eapache/go-xerial-snappy",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "oCCs6kDanizatplM5e/hX76busE=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/eapache/queue",
 			"path": "github.com/eapache/queue",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "QeKwBtN2df+j+4stw3bQJ6yO4EY=",
@@ -161,8 +161,8 @@
 			"checksumSHA1": "p/8vSviYF91gFflhrt5vkyksroo=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/golang/snappy",
 			"path": "github.com/golang/snappy",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "p3IB18uJRs4dL2K5yx24MrLYE9A=",
@@ -171,10 +171,10 @@
 			"revisionTime": "2017-01-11T10:11:55Z"
 		},
 		{
-			"checksumSHA1": "nepc60QO/JguHvHFNsedhzzecb4=",
+			"checksumSHA1": "Tkk45Uf6rvSFJJhXUPpJOnmR1l8=",
 			"path": "github.com/inwecrypto/ethdb",
-			"revision": "584e32db1e169e3c545330d63e63a56b0acc29e7",
-			"revisionTime": "2017-12-13T02:22:10Z"
+			"revision": "6d165e539428f0f9a544166d45d6a8d060b290d4",
+			"revisionTime": "2017-12-18T14:48:35Z"
 		},
 		{
 			"checksumSHA1": "rM4S8j2jSDCRwRP93uKeDMdQBa4=",
@@ -185,14 +185,14 @@
 		{
 			"checksumSHA1": "3KEBpDx4GWZATfkd+q9ROkqsvVA=",
 			"path": "github.com/inwecrypto/gomq-kafka",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "UkEsRcjk6eFR5hy1o+ZWDEdC6X4=",
 			"path": "github.com/inwecrypto/neo-order-service/model",
-			"revision": "9a93900a9fa3670c7633498a89252ed07670d2a5",
-			"revisionTime": "2017-12-12T12:00:51Z"
+			"revision": "cc28d31dbd8a09ac7bca5d40e0300b13148b4c6f",
+			"revisionTime": "2017-12-27T13:24:54Z"
 		},
 		{
 			"checksumSHA1": "3HVfwgLpCDH8JX211UWdrSi/GU4=",
@@ -213,18 +213,18 @@
 			"revisionTime": "2017-11-07T05:05:31Z"
 		},
 		{
-			"checksumSHA1": "FGg99nQ56Fo3radSCuU1AeEUJug=",
+			"checksumSHA1": "xKzx54LbkghuMauevGWevn5ip3w=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/pierrec/lz4",
 			"path": "github.com/pierrec/lz4",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "zPWRjzsPeXCoqmidIcJtHbvrvRs=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/pierrec/xxHash/xxHash32",
 			"path": "github.com/pierrec/xxHash/xxHash32",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "zKKp5SZ3d3ycKe4EKMNT0BqAWBw=",
@@ -234,11 +234,11 @@
 			"revisionTime": "2017-07-05T02:17:15Z"
 		},
 		{
-			"checksumSHA1": "KAzbLjI9MzW2tjfcAsK75lVRp6I=",
+			"checksumSHA1": "6u6M+ydTkWgOlM+UK+wOYnHhpAU=",
 			"origin": "github.com/inwecrypto/gomq-kafka/vendor/github.com/rcrowley/go-metrics",
 			"path": "github.com/rcrowley/go-metrics",
-			"revision": "733a7bec73f91ef382c33d0497bcbc3a8a618db3",
-			"revisionTime": "2017-11-26T09:54:29Z"
+			"revision": "232c884fdd31771bd06e9ad7a47d3167ca56c58d",
+			"revisionTime": "2017-12-27T13:21:11Z"
 		},
 		{
 			"checksumSHA1": "mGbTYZ8dHVTiPTTJu3ktp+84pPI=",
