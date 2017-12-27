@@ -5,7 +5,7 @@ import "time"
 // TableTx orm table define
 type TableTx struct {
 	ID         int64     `xorm:"pk autoincr"`
-	TX         string    `xorm:"notnull"`
+	TX         string    `xorm:"index notnull"`
 	From       string    `xorm:"index(from_to)"`
 	To         string    `xorm:"index(from_to)"`
 	Asset      string    `xorm:"notnull"`
