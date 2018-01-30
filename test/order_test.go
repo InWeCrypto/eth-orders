@@ -10,8 +10,8 @@ import (
 	"testing"
 
 	"github.com/dghubble/sling"
+	orders "github.com/inwecrypto/eth-orders"
 
-	"github.com/inwecrypto/neo-order-service/model"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -97,11 +97,11 @@ func printResult(result interface{}) {
 }
 
 func TestListOrder(t *testing.T) {
-	request, err := sling.New().Get("http://localhost:8000/orders/0x8214b824927a28dc16581cd22e460fe0f7e31994/0x0000000000000000000000000000000000000000/0/20").Request()
+	request, err := sling.New().Get("http://localhost:8000/orders/0x71a9ac84b4c61d3df23a37328a51e9f7f254da36/0x0000000000000000000000000000000000000000/0/10").Request()
 
 	assert.NoError(t, err)
 
-	var orders []*model.Order
+	var orders []*orders.Order
 	var errmsg interface{}
 
 	_, err = sling.New().Do(request, &orders, &errmsg)
