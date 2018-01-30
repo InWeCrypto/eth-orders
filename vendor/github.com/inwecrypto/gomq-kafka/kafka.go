@@ -29,6 +29,8 @@ func NewAliyunProducer(cnf *config.Config) (*AliyunProducer, error) {
 
 	kafkaConfig := sarama.NewConfig()
 
+	kafkaConfig.Metadata.Retry.Max = 10000000000
+
 	kafkaConfig.Net.SASL.Enable = true
 
 	kafkaConfig.Net.SASL.User = cnf.GetString("aliyun.kafka.user", "xxxx")
@@ -136,6 +138,8 @@ func NewAliyunConsumer(cnf *config.Config) (*AliyunConsumer, error) {
 	logger.DebugF("create aliyun kafka producer with config:\n%s", cnf)
 
 	clusterCfg := cluster.NewConfig()
+
+	clusterCfg.Metadata.Retry.Max = 10000000000
 
 	clusterCfg.Net.SASL.Enable = true
 	clusterCfg.Net.SASL.User = cnf.GetString("aliyun.kafka.user", "xxxx")
