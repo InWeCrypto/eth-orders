@@ -93,7 +93,7 @@ func initXORM(conf *config.Config) (*xorm.Engine, error) {
 
 func (server *APIServer) makeRouters() {
 	server.engine.POST("/wallet/:userid/:address", func(ctx *gin.Context) {
-		if err := server.createWallet(ctx.Param("address"), ctx.Param("userid")); err != nil {
+		if err := server.createWallet(ctx.Param("userid"), ctx.Param("address")); err != nil {
 			server.ErrorF("create wallet error :%s", err)
 			ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
