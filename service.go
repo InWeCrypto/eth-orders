@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/dynamicgo/config"
@@ -172,7 +173,7 @@ func parseInt(ctx *gin.Context, name string) (int, error) {
 }
 
 func (server *APIServer) createWallet(userid string, address string) error {
-
+	address = strings.ToLower(address)
 	wallet := &ethdb.TableWallet{
 		Address: address,
 		UserID:  userid,
@@ -183,7 +184,7 @@ func (server *APIServer) createWallet(userid string, address string) error {
 }
 
 func (server *APIServer) deleteWallet(userid string, address string) error {
-
+	address = strings.ToLower(address)
 	wallet := &ethdb.TableWallet{
 		Address: address,
 		UserID:  userid,
@@ -194,6 +195,9 @@ func (server *APIServer) deleteWallet(userid string, address string) error {
 }
 
 func (server *APIServer) createOrder(order *Order) error {
+
+	order.From = strings.ToLower(order.From)
+	order.To = strings.ToLower(order.To)
 
 	tOrder := &ethdb.TableOrder{
 		ID:      order.ID,
@@ -251,6 +255,8 @@ func (server *APIServer) getOrder(tx string) ([]*Order, error) {
 }
 
 func (server *APIServer) getPagedOrders(address, asset string, offset, size int) ([]*Order, error) {
+
+	address = strings.ToLower(address)
 
 	server.DebugF("get address(%s) asset(%s) order (%d,%d)", address, asset, offset, size)
 
