@@ -252,7 +252,7 @@ func (server *APIServer) getOrder(tx string) ([]*Order, error) {
 
 func (server *APIServer) getPagedOrders(address, asset string, offset, size int) ([]*Order, error) {
 
-	server.DebugF("get address(%s) orders(%s) (%d,%d)", address, asset, offset, size)
+	server.DebugF("get address(%s) asset(%s) order (%d,%d)", address, asset, offset, size)
 
 	torders := make([]*ethdb.TableOrder, 0)
 
@@ -266,6 +266,8 @@ func (server *APIServer) getPagedOrders(address, asset string, offset, size int)
 		return make([]*Order, 0), err
 	}
 
+	server.DebugF("get address(%s) asset(%s) order (%d,%d) found %d", address, asset, offset, size, len(torders))
+
 	orders := make([]*Order, 0)
 
 	for _, torder := range torders {
@@ -277,6 +279,8 @@ func (server *APIServer) getPagedOrders(address, asset string, offset, size int)
 			timestr := torder.ConfirmTime.Format(time.RFC3339Nano)
 			confirmTime = &timestr
 		}
+
+		server.DebugF("address(%s) order(%s)", address, torder.TX)
 
 		orders = append(orders, &Order{
 			TX:          torder.TX,
