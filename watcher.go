@@ -32,7 +32,7 @@ func newTxWatcher(conf *config.Config, db *xorm.Engine) (*txWatcher, error) {
 		mq:       mq,
 		Logger:   slf4go.Get("txwatcher"),
 		db:       db,
-		handlers: config.GetInt64("orders.handlers", 10),
+		handlers: config.GetInt64("orders.handlers", 1),
 	}, nil
 }
 
