@@ -71,7 +71,7 @@ func (watcher *txWatcher) commitMessage(message gomq.Message) {
 
 func (watcher *txWatcher) handleTx(tx string) error {
 
-	// watcher.DebugF("handle tx %s", tx)
+	watcher.DebugF("handle tx %s", tx)
 
 	ethTx := new(ethdb.TableTx)
 
@@ -120,8 +120,12 @@ func (watcher *txWatcher) handleTx(tx string) error {
 
 		_, err = watcher.db.Insert(order)
 
+		watcher.DebugF("handle tx %s -- insert outside order", tx)
+
 		return err
 	}
+
+	watcher.DebugF("handle tx %s -- finish", tx)
 
 	return nil
 }

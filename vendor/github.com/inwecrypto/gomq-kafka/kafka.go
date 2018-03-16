@@ -198,7 +198,7 @@ func NewAliyunConsumer(cnf *config.Config) (*AliyunConsumer, error) {
 
 	clusterCfg.Net.TLS.Enable = true
 	clusterCfg.Consumer.Return.Errors = true
-	// clusterCfg.Consumer.Offsets.Initial = sarama.OffsetOldest
+	clusterCfg.Consumer.Offsets.Initial = sarama.OffsetOldest
 	clusterCfg.Group.Return.Notifications = true
 
 	clusterCfg.Version = sarama.V0_10_0_0
