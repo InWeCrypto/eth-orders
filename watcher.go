@@ -53,9 +53,9 @@ func (watcher *txWatcher) doRun() {
 			watcher.ErrorF("handle tx %s err, %s", string(message.Key()), err)
 		}
 
-		// watcher.mq.Commit(message)
+		watcher.mq.Commit(message)
 
-		watcher.commitMessage(message)
+		// watcher.commitMessage(message)
 	}
 }
 func (watcher *txWatcher) commitMessage(message gomq.Message) {
