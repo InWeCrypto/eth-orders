@@ -32,7 +32,7 @@ func newTxWatcher(conf *config.Config, db *xorm.Engine) (*txWatcher, error) {
 		mq:       mq,
 		Logger:   slf4go.Get("txwatcher"),
 		db:       db,
-		handlers: config.GetInt64("orders.handlers", 1),
+		handlers: config.GetInt64("orders.handlers", 10),
 	}, nil
 }
 
@@ -66,6 +66,8 @@ func (watcher *txWatcher) commitMessage(message gomq.Message) {
 		watcher.marked = message.Offset()
 
 		watcher.mq.Commit(message)
+
+		watcher.DebugF("commit offset %d", watcher.marked)
 	}
 }
 
