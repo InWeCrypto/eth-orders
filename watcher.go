@@ -32,7 +32,7 @@ func newTxWatcher(conf *config.Config, db *xorm.Engine) (*txWatcher, error) {
 		mq:       mq,
 		Logger:   slf4go.Get("txwatcher"),
 		db:       db,
-		handlers: config.GetInt64("orders.handlers", 10),
+		handlers: config.GetInt64("orders.handlers", 1),
 	}, nil
 }
 
@@ -71,7 +71,7 @@ func (watcher *txWatcher) commitMessage(message gomq.Message) {
 
 func (watcher *txWatcher) handleTx(tx string) error {
 
-	watcher.DebugF("handle tx %s", tx)
+	// watcher.DebugF("handle tx %s", tx)
 
 	ethTx := new(ethdb.TableTx)
 
@@ -125,7 +125,7 @@ func (watcher *txWatcher) handleTx(tx string) error {
 		return err
 	}
 
-	watcher.DebugF("handle tx %s -- finish", tx)
+	// watcher.DebugF("handle tx %s -- finish", tx)
 
 	return nil
 }
