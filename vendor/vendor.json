@@ -183,7 +183,7 @@
 			"revisionTime": "2018-01-01T14:46:32Z"
 		},
 		{
-			"checksumSHA1": "YrTqxGR8LXR7usmK6TnIiNFp1rE=",
+			"checksumSHA1": "WKvNg8eVPbGuu7NeKiUFZACpI8k=",
 			"path": "github.com/inwecrypto/gomq-kafka",
 			"revision": "59b5ddb81b68028856aabb4a80a82410aa9b59d1",
 			"revisionTime": "2018-03-16T15:11:38Z"
@@ -195,7 +195,7 @@
 			"revisionTime": "2018-02-01T18:47:07Z"
 		},
 		{
-			"checksumSHA1": "ATnwV0POluBNQEMjPdylodz0oK0=",
+			"checksumSHA1": "AU3fA8Sm33Vj9PBoRPSeYfxLRuE=",
 			"path": "github.com/lib/pq/oid",
 			"revision": "88edab0803230a3898347e77b474f8c1820a1f20",
 			"revisionTime": "2018-02-01T18:47:07Z"
@@ -241,13 +241,13 @@
 			"revisionTime": "2017-12-31T12:27:32Z"
 		},
 		{
-			"checksumSHA1": "xgL6TWhgkL/ULE2olP+ZA6gbOno=",
+			"checksumSHA1": "s+pk+d9XCjBkyUdHOwdB39FHaPQ=",
 			"path": "github.com/ugorji/go/codec",
 			"revision": "9831f2c3ac1068a78f50999a30db84270f647af6",
 			"revisionTime": "2018-01-12T14:19:27Z"
 		},
 		{
-			"checksumSHA1": "9It5JHR6m3sstl3XX9Vcw/2LC3w=",
+			"checksumSHA1": "m0LbR1VvGELW+qpORm/o6lXwUSA=",
 			"path": "golang.org/x/sys/unix",
 			"revision": "af50095a40f9041b3b38960738837185c26e9419",
 			"revisionTime": "2018-01-19T16:06:40Z"

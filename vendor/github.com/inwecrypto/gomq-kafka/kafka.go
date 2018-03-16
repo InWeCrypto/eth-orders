@@ -201,7 +201,7 @@ func NewAliyunConsumer(cnf *config.Config) (*AliyunConsumer, error) {
 	clusterCfg.Consumer.Offsets.Initial = sarama.OffsetOldest
 	clusterCfg.Group.Return.Notifications = true
 
-	clusterCfg.Version = sarama.MaxVersion
+	clusterCfg.Version = sarama.V0_10_0_0
 	if err = clusterCfg.Validate(); err != nil {
 		return nil, fmt.Errorf("kafka producer config invalidate. err: %v", err)
 	}
