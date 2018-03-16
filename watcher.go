@@ -67,13 +67,13 @@ func (watcher *txWatcher) commitMessage(message gomq.Message) {
 
 		watcher.mq.Commit(message)
 
-		watcher.DebugF("commit offset %d", watcher.marked)
+		// watcher.DebugF("commit offset %d", watcher.marked)
 	}
 }
 
 func (watcher *txWatcher) handleTx(tx string) error {
 
-	// watcher.DebugF("handle tx %s", tx)
+	watcher.DebugF("handle tx %s", tx)
 
 	ethTx := new(ethdb.TableTx)
 
@@ -127,7 +127,7 @@ func (watcher *txWatcher) handleTx(tx string) error {
 		return err
 	}
 
-	// watcher.DebugF("handle tx %s -- finish", tx)
+	watcher.DebugF("handle tx %s -- finish", tx)
 
 	return nil
 }
