@@ -1,6 +1,8 @@
 package orders
 
 import (
+	"sync"
+
 	"github.com/dynamicgo/config"
 	"github.com/dynamicgo/slf4go"
 	"github.com/go-xorm/xorm"
@@ -12,7 +14,10 @@ import (
 type txWatcher struct {
 	mq gomq.Consumer
 	slf4go.Logger
-	db *xorm.Engine
+	db       *xorm.Engine
+	marked   int64
+	handlers int64
+	sync.Mutex
 }
 
 func newTxWatcher(conf *config.Config, db *xorm.Engine) (*txWatcher, error) {
@@ -24,26 +29,43 @@ func newTxWatcher(conf *config.Config, db *xorm.Engine) (*txWatcher, error) {
 	}
 
 	return &txWatcher{
-		mq:     mq,
-		Logger: slf4go.Get("txwatcher"),
-		db:     db,
+		mq:       mq,
+		Logger:   slf4go.Get("txwatcher"),
+		db:       db,
+		handlers: config.GetInt64("orders.handlers", 10),
 	}, nil
 }
 
 func (watcher *txWatcher) Run() {
-	for {
-		select {
-		case message, ok := <-watcher.mq.Messages():
-			if ok {
-				if err := watcher.handleTx(string(message.Key())); err != nil {
-					watcher.ErrorF("handle tx %s err, %s", string(message.Key()), err)
-				}
 
-				watcher.mq.Commit(message)
-			}
-		case err := <-watcher.mq.Errors():
+	go func() {
+		for err := range watcher.mq.Errors() {
 			watcher.ErrorF("mq error %s", err)
 		}
+	}()
+
+	for i := int64(0); i < watcher.handlers; i++ {
+		watcher.doRun()
+	}
+}
+
+func (watcher *txWatcher) doRun() {
+	for message := range watcher.mq.Messages() {
+		if err := watcher.handleTx(string(message.Key())); err != nil {
+			watcher.ErrorF("handle tx %s err, %s", string(message.Key()), err)
+		}
+
+		watcher.commitMessage(message)
+	}
+}
+func (watcher *txWatcher) commitMessage(message gomq.Message) {
+	watcher.Lock()
+	defer watcher.Unlock()
+
+	if watcher.marked < message.Offset() {
+		watcher.marked = message.Offset()
+
+		watcher.mq.Commit(message)
 	}
 }
 

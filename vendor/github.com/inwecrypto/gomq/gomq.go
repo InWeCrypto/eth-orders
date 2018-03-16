@@ -1,8 +1,16 @@
 package gomq
 
+// BatchMessage .
+type BatchMessage struct {
+	Topic   string
+	Key     []byte
+	Content interface{}
+}
+
 // Producer mq producer client
 type Producer interface {
 	Produce(topic string, key []byte, content interface{}) error
+	Batch(messages []*BatchMessage) error
 }
 
 // Message MQ message
