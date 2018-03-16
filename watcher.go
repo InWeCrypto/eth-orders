@@ -38,14 +38,12 @@ func newTxWatcher(conf *config.Config, db *xorm.Engine) (*txWatcher, error) {
 
 func (watcher *txWatcher) Run() {
 
-	go func() {
-		for err := range watcher.mq.Errors() {
-			watcher.ErrorF("mq error %s", err)
-		}
-	}()
-
 	for i := int64(0); i < watcher.handlers; i++ {
-		watcher.doRun()
+		go watcher.doRun()
+	}
+
+	for err := range watcher.mq.Errors() {
+		watcher.ErrorF("mq error %s", err)
 	}
 }
 
@@ -54,6 +52,8 @@ func (watcher *txWatcher) doRun() {
 		if err := watcher.handleTx(string(message.Key())); err != nil {
 			watcher.ErrorF("handle tx %s err, %s", string(message.Key()), err)
 		}
+
+		// watcher.mq.Commit(message)
 
 		watcher.commitMessage(message)
 	}
