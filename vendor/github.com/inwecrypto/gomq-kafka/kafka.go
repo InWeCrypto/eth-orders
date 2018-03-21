@@ -109,6 +109,37 @@ func (producer *AliyunProducer) Produce(topic string, key []byte, content interf
 	return nil
 }
 
+// Batch .
+func (producer *AliyunProducer) Batch(messages []*mq.BatchMessage) error {
+
+	var msgs []*sarama.ProducerMessage
+
+	for _, message := range messages {
+		data, err := json.Marshal(message.Content)
+
+		if err != nil {
+			return err
+		}
+
+		msgs = append(msgs, &sarama.ProducerMessage{
+			Topic: message.Topic,
+			Key:   sarama.ByteEncoder(message.Key),
+			Value: sarama.ByteEncoder(data),
+		})
+	}
+
+	err := producer.producer.SendMessages(msgs)
+
+	if err != nil {
+		return fmt.Errorf(
+			"Kafka send message error. %d", len(messages),
+		)
+
+	}
+
+	return nil
+}
+
 // AliyunConsumer .
 type AliyunConsumer struct {
 	consumer *cluster.Consumer
