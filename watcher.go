@@ -49,7 +49,7 @@ func (watcher *txWatcher) Run() {
 
 func (watcher *txWatcher) handleTx(tx string) error {
 
-	// watcher.DebugF("handle tx %s", tx)
+	watcher.DebugF("handle tx %s", tx)
 
 	ethTx := new(ethdb.TableTx)
 
