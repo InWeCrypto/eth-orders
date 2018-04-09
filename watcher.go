@@ -73,7 +73,7 @@ func (watcher *txWatcher) commitMessage(message gomq.Message) {
 
 func (watcher *txWatcher) handleTx(tx string) error {
 
-	// watcher.DebugF("handle tx %s", tx)
+	watcher.DebugF("handle tx %s", tx)
 
 	ethTx := new(ethdb.TableTx)
 
@@ -119,6 +119,7 @@ func (watcher *txWatcher) handleTx(tx string) error {
 		order.TX = ethTx.TX
 		order.Value = ethTx.Value
 		order.CreateTime = ethTx.CreateTime
+		order.ConfirmTime = ethTx.CreateTime
 
 		_, err = watcher.db.Insert(order)
 
